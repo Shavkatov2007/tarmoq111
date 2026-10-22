@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ilova sathi hujumlari va himoya usullari</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#07090D;--pn:#10141B;--ln:rgba(255,255,255,.09);--tx:#EDEFF2;--dm:#8A93A0;--lm:#B6FF3B;--cy:#4DD6FF;--rd:#FF4D5E;--yl:#FFC24A;--hd:'Bricolage Grotesque',sans-serif;--bd:'Inter',sans-serif;--mn:'JetBrains Mono',monospace}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{background:var(--bg);color:var(--tx);font-family:var(--bd);-webkit-font-smoothing:antialiased}
+button{font-family:inherit;cursor:pointer}
+::selection{background:var(--lm);color:#000}
+.gb{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(var(--ln) 1px,transparent 1px),linear-gradient(90deg,var(--ln) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(ellipse at 50% 40%,#000 5%,transparent 70%);mask-image:radial-gradient(ellipse at 50% 40%,#000 5%,transparent 70%);animation:gm 16s linear infinite}
+@keyframes gm{to{background-position:56px 56px,56px 56px}}
+.gw{position:fixed;z-index:0;border-radius:50%;filter:blur(110px);pointer-events:none}
+.g1{width:42vw;height:42vw;background:var(--lm);top:-18vw;left:-10vw;opacity:.13;animation:fl 20s ease-in-out infinite}
+.g2{width:36vw;height:36vw;background:var(--cy);bottom:-14vw;right:-8vw;opacity:.13;animation:fl 25s ease-in-out infinite reverse}
+@keyframes fl{50%{transform:translate(4vw,3vw)}}
+#bar{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--lm),var(--cy));z-index:50;width:0;transition:width .5s}
+#wrap{position:relative;z-index:1;height:100vh;height:100dvh;overflow-y:auto;scroll-snap-type:y mandatory;scroll-behavior:smooth}
+#wrap::-webkit-scrollbar{display:none}
+.slide{min-height:100vh;min-height:100dvh;scroll-snap-align:start;scroll-snap-stop:always;display:flex;align-items:center;padding:6vh 7vw 9vh 6vw;position:relative;overflow:hidden}
+.in{width:100%;max-width:1280px;margin:0 auto;position:relative;z-index:2}
+.rv{opacity:0;transform:translateY(26px);filter:blur(6px);transition:opacity .7s,transform .7s,filter .7s}
+.slide.on .rv{opacity:1;transform:none;filter:none}
+.slide.on .d1{transition-delay:.05s}.slide.on .d2{transition-delay:.15s}.slide.on .d3{transition-delay:.25s}.slide.on .d4{transition-delay:.35s}.slide.on .d5{transition-delay:.45s}
+.tag{font-family:var(--mn);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--lm);display:inline-flex;align-items:center;gap:10px}
+.tag::before{content:'';width:22px;height:1px;background:var(--lm)}
+.who{position:absolute;top:3vh;right:7vw;z-index:3;font-family:var(--mn);font-size:11px;color:var(--dm);border:1px solid var(--ln);padding:5px 12px;border-radius:99px;background:rgba(255,255,255,.03)}
+.who b{color:var(--lm)}
+h2{font-family:var(--hd);font-weight:800;font-size:clamp(1.9rem,3.8vw,3.2rem);line-height:1.04;letter-spacing:-.025em;margin-top:14px}
+h2 em{font-style:normal;background:linear-gradient(100deg,var(--lm),var(--cy));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{margin-top:14px;font-size:clamp(.92rem,1.1vw,1.04rem);line-height:1.65;color:#B9C0CC;max-width:520px}
+.lead b{color:#fff;font-weight:600}
+.pts{margin-top:16px;display:flex;flex-direction:column;gap:8px;max-width:520px}
+.pt{display:flex;gap:10px;font-size:13px;line-height:1.5;color:#C3CAD5;padding:10px 12px;border-radius:12px;background:var(--pn);border:1px solid var(--ln)}
+.pt i{font-style:normal;font-family:var(--mn);font-size:10px;font-weight:700;flex:none;padding:3px 8px;border-radius:6px;height:fit-content;margin-top:1px}
+.pt.a i{background:rgba(255,77,94,.15);color:var(--rd)}.pt.d i{background:rgba(182,255,59,.15);color:var(--lm)}
+.pt code{font-family:var(--mn);font-size:11.5px;color:var(--cy)}
+/* hero */
+#net{position:absolute;inset:0;width:100%;height:100%;z-index:1}
+.hero{font-family:var(--hd);font-weight:800;font-size:clamp(3rem,9.6vw,8.6rem);line-height:.92;letter-spacing:-.04em;margin-top:20px}
+.gl{position:relative;display:inline-block}
+.gl.a{background:linear-gradient(100deg,var(--lm),var(--cy),var(--lm));background-size:200%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sh 6s linear infinite}
+.gl.b{-webkit-text-stroke:2px var(--tx);color:transparent}
+@keyframes sh{to{background-position:200% 0}}
+.gl::before,.gl::after{content:attr(data-t);position:absolute;left:0;top:0;opacity:0;-webkit-text-stroke:0;-webkit-text-fill-color:currentColor;background:none}
+.gl::before{color:var(--cy);animation:g1 5s infinite}.gl::after{color:var(--rd);animation:g2 5s infinite}
+@keyframes g1{0%,90%,100%{opacity:0}92%{opacity:.9;transform:translate(-5px,2px);clip-path:inset(10% 0 55% 0)}95%{opacity:.9;transform:translate(4px,-2px);clip-path:inset(60% 0 8% 0)}}
+@keyframes g2{0%,91%,100%{opacity:0}93%{opacity:.9;transform:translate(5px,-2px);clip-path:inset(40% 0 30% 0)}96%{opacity:.9;transform:translate(-4px,2px);clip-path:inset(5% 0 70% 0)}}
+.boot{margin-top:24px;font-family:var(--mn);font-size:12.5px;line-height:1.8;color:var(--dm);min-height:90px}
+.boot b{color:var(--lm)}.boot u{text-decoration:none;color:var(--rd)}
+.boot i{display:inline-block;width:8px;height:15px;background:var(--lm);vertical-align:-3px;animation:bk 1s steps(1) infinite}
+@keyframes bk{50%{opacity:0}}
+.stats{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.stat{border:1px solid var(--ln);background:rgba(255,255,255,.03);border-radius:16px;padding:12px 18px;backdrop-filter:blur(6px)}
+.stat b{display:block;font-family:var(--hd);font-size:1.9rem;color:var(--lm)}.stat span{font-family:var(--mn);font-size:10px;color:var(--dm);letter-spacing:.08em;text-transform:uppercase}
+.hint{margin-top:22px;font-family:var(--mn);font-size:11.5px;color:var(--dm);animation:bob 2s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(6px)}}
+/* flow */
+.flow{position:relative;display:flex;margin-top:40px;align-items:stretch}
+.node{flex:1 1 0;min-width:0;background:var(--pn);border:1px solid var(--ln);border-radius:18px;padding:16px 10px;text-align:center}
+.node .ic{font-family:var(--mn);font-weight:700;font-size:12px;color:#000;background:var(--lm);border-radius:10px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;margin:0 auto 10px}
+.node.n2 .ic{background:var(--cy)}.node b{font-size:13px;display:block}.node small{display:block;color:var(--dm);font-size:11px;margin:4px 0 10px;line-height:1.35}
+.hit{display:inline-block;font-family:var(--mn);font-size:10px;color:var(--rd);border:1px solid rgba(255,77,94,.45);background:rgba(255,77,94,.1);border-radius:99px;padding:3px 8px;margin:2px;animation:pl 2.4s infinite}
+@keyframes pl{0%{box-shadow:0 0 0 0 rgba(255,77,94,.45)}70%,100%{box-shadow:0 0 0 7px rgba(255,77,94,0)}}
+.arr{flex:0 0 22px;display:flex;align-items:center;justify-content:center;color:var(--dm)}
+.pkt{position:absolute;top:34px;width:14px;height:14px;border-radius:50%;background:var(--lm);box-shadow:0 0 18px 6px var(--lm);animation:pk 8s linear infinite;z-index:3}
+@keyframes pk{0%{left:7%;background:var(--lm);box-shadow:0 0 18px 6px var(--lm)}25%{left:28%}50%{left:49%}62%{left:67%;background:var(--lm)}68%{background:var(--rd);box-shadow:0 0 18px 6px var(--rd)}80%{left:88%;background:var(--rd)}100%{left:94%;background:var(--rd);box-shadow:0 0 18px 6px var(--rd)}}
+.cap{margin-top:18px;font-family:var(--mn);font-size:12px;color:var(--dm)}
+/* flip cards */
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:30px}
+.fc{perspective:900px;height:190px;cursor:pointer}
+.fi{position:relative;width:100%;height:100%;transition:transform .7s cubic-bezier(.2,.8,.2,1);transform-style:preserve-3d}
+.fc:hover .fi,.fc.fl .fi{transform:rotateY(180deg)}
+.ff,.fb{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:20px;border:1px solid var(--ln);padding:18px;background:var(--pn);overflow:hidden}
+.ff::after{content:'';position:absolute;inset:0;background:radial-gradient(240px circle at var(--mx,50%) var(--my,0%),rgba(182,255,59,.14),transparent 60%);pointer-events:none}
+.fb{transform:rotateY(180deg);background:linear-gradient(150deg,#122015,#0e1820);border-color:rgba(182,255,59,.4)}
+.ff .e{font-size:2rem}.ff h3,.fb h3{font-family:var(--hd);font-size:1.1rem;margin:8px 0 4px}.ff p,.fb p{font-size:12.3px;line-height:1.5;color:#A5ADBA}
+.fb h3{color:var(--lm)}
+.sv{position:absolute;left:18px;bottom:16px;font-family:var(--mn);font-size:10px;padding:3px 9px;border-radius:99px}
+.hi{color:var(--rd);background:rgba(255,77,94,.12)}.md{color:var(--yl);background:rgba(255,194,74,.12)}
+/* labs */
+.two{display:grid;grid-template-columns:.8fr 1.2fr;gap:3.5vw;align-items:center}
+.lab{background:var(--pn);border:1px solid var(--ln);border-radius:20px;padding:16px;box-shadow:0 30px 70px -30px rgba(0,0,0,.85);transition:box-shadow .3s}
+.lab.br{animation:shake .5s,flash .9s}
+@keyframes shake{20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
+@keyframes flash{0%,100%{box-shadow:0 30px 70px -30px rgba(0,0,0,.85)}30%{box-shadow:0 0 0 2px var(--rd),0 0 60px 8px rgba(255,77,94,.5)}}
+.lh{display:flex;align-items:center;gap:10px 16px;flex-wrap:wrap;margin-bottom:12px}
+.sw{display:inline-flex;align-items:center;gap:9px;cursor:pointer;font-family:var(--mn);font-size:11.5px;font-weight:700}
+.sw input{display:none}.tr{width:38px;height:21px;border-radius:99px;background:rgba(255,77,94,.3);border:1px solid var(--rd);position:relative;transition:.3s}
+.tr::after{content:'';position:absolute;top:2px;left:2px;width:15px;height:15px;border-radius:50%;background:#fff;transition:.3s}
+.sw input:checked+.tr{background:rgba(182,255,59,.25);border-color:var(--lm)}.sw input:checked+.tr::after{left:19px}
+.sw input:checked~b{color:var(--lm)}.sw b{color:var(--rd)}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.ch{font-family:var(--mn);font-size:10.5px;color:var(--cy);background:rgba(77,214,255,.08);border:1px solid rgba(77,214,255,.3);border-radius:8px;padding:4px 9px}
+.ch:hover{background:rgba(77,214,255,.18)}
+.fm{display:flex;gap:8px}
+.fm input{flex:1;min-width:0;background:#0A0E13;border:1px solid var(--ln);color:var(--tx);font-family:var(--mn);font-size:12.5px;padding:10px 12px;border-radius:10px;outline:none}
+.fm input:focus{border-color:var(--lm)}
+.go{background:var(--lm);color:#000;border:0;border-radius:10px;padding:0 18px;font-weight:700;font-size:13px;transition:.2s}.go:hover{transform:translateY(-2px);box-shadow:0 8px 20px -8px var(--lm)}.go:disabled{opacity:.5;transform:none}
+.con{margin-top:10px;font-family:var(--mn);font-size:11.5px;line-height:1.55;word-break:break-all;min-height:86px}
+.con div{padding:8px 10px;border-radius:9px;margin-top:6px;animation:pop .35s}
+@keyframes pop{from{opacity:0;transform:translateY(8px)}}
+.bd{background:rgba(255,77,94,.09);border-left:2px solid var(--rd)}.gd{background:rgba(182,255,59,.08);border-left:2px solid var(--lm)}.nt{background:rgba(255,255,255,.04);border-left:2px solid var(--dm)}
+.con em{font-style:normal;color:var(--rd);font-weight:700}.con span{color:var(--dm)}
+.snip{margin-top:10px;background:#0A0E13;border:1px solid var(--ln);border-radius:12px;padding:10px 0;font-family:var(--mn);font-size:11.8px;line-height:1.7;overflow-x:auto;counter-reset:l;position:relative}
+.snip::before{content:'🐍 Python';position:absolute;right:10px;top:6px;font-size:10px;color:var(--dm)}
+.ln{display:block;padding:0 14px 0 8px;counter-increment:l;white-space:pre}
+.ln::before{content:counter(l);display:inline-block;width:22px;color:#4B5563;text-align:right;margin-right:12px;font-size:10px}
+.k{color:#FF7AB2}.s{color:#B6FF3B}.c{color:#5C6773;font-style:italic}.f{color:#4DD6FF}.nn{color:#FFC24A}
+.page{background:#0A0E13;border:1px solid var(--ln);border-radius:12px;padding:12px;margin-bottom:10px;position:relative}
+.page .pb{font-size:12px;font-weight:600;color:var(--dm);margin-bottom:8px}
+.cm{font-size:12.5px;padding:6px 10px;background:rgba(255,255,255,.04);border-radius:8px;margin-bottom:5px;animation:pop .3s}
+.abx{position:absolute;inset:0;background:rgba(40,0,6,.9);border:1px solid var(--rd);border-radius:12px;display:none;align-items:center;justify-content:center;text-align:center;font-size:13px;padding:14px;flex-direction:column;gap:8px;z-index:3}
+.abx.on{display:flex;animation:pop .3s}.abx b{color:var(--rd);font-size:15px}.abx code{font-family:var(--mn);color:var(--yl);font-size:12px}
+.bal{display:flex;align-items:baseline;justify-content:space-between;background:#0A0E13;border:1px solid var(--ln);border-radius:12px;padding:10px 14px;margin-bottom:10px}
+.bal span{font-family:var(--mn);font-size:10px;color:var(--dm);letter-spacing:.1em}.bal b{font-family:var(--hd);font-size:1.7rem;color:var(--lm)}.bal b.lo{color:var(--rd)}
+.mt{height:8px;background:rgba(255,255,255,.07);border-radius:9px;margin:12px 0;overflow:hidden}.mt i{display:block;height:100%;width:0;border-radius:9px;transition:width .4s,background .4s}
+.crk{font-family:var(--mn);font-size:1.6rem;letter-spacing:.16em;text-align:center;padding:12px;background:#0A0E13;border-radius:12px;border:1px solid var(--ln);color:var(--lm);min-height:56px;margin-bottom:8px}
+.rows{display:grid;gap:6px}.row{display:flex;justify-content:space-between;gap:10px;font-size:12px;padding:8px 12px;border-radius:10px;background:rgba(255,255,255,.04)}
+.row span{color:var(--dm);font-family:var(--mn);font-size:11px}.row b{font-family:var(--mn);font-size:12px}
+.rg{display:inline-flex;align-items:center;gap:8px;font-family:var(--mn);font-size:11.5px;color:var(--dm)}.rg input{accent-color:var(--rd);width:110px}
+#arena{width:100%;height:230px;display:block;background:#090C11;border:1px solid var(--ln);border-radius:12px}
+.st2{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;font-family:var(--mn);font-size:11px}.st2 span{padding:5px 10px;border-radius:8px;background:rgba(255,255,255,.05)}.st2 b{font-size:13px}
+/* final */
+.fin{display:grid;grid-template-columns:1fr 1fr;gap:3.5vw;align-items:start}
+.ly{display:flex;gap:12px;align-items:center;background:var(--pn);border:1px solid var(--ln);border-radius:14px;padding:10px 14px;margin-top:8px;transition:.3s}.ly:hover{border-color:var(--lm);transform:translateX(6px)}
+.ly .num{font-family:var(--hd);font-weight:800;font-size:1.4rem;color:var(--lm);width:26px}.ly b{display:block;font-size:13.5px}.ly small{color:var(--dm);font-size:11.5px}
+.qz{background:linear-gradient(150deg,rgba(182,255,59,.08),rgba(77,214,255,.08));border:1px solid var(--ln);border-radius:20px;padding:20px;min-height:340px}
+.qz h3{font-family:var(--hd);font-size:1.15rem;line-height:1.3;margin:10px 0 14px}
+.op{display:block;width:100%;text-align:left;background:var(--pn);border:1px solid var(--ln);color:var(--tx);border-radius:12px;padding:12px 14px;margin-top:8px;font-size:13.5px;transition:.2s}
+.op:hover{border-color:var(--lm);transform:translateX(5px)}.op.ok{background:rgba(182,255,59,.18);border-color:var(--lm)}.op.no{background:rgba(255,77,94,.16);border-color:var(--rd)}
+.big{font-family:var(--hd);font-size:3.4rem;font-weight:800;color:var(--lm);text-align:center;margin-top:20px}
+.cf{position:fixed;width:8px;height:12px;z-index:99;pointer-events:none}
+/* rail / nav / toast */
+#rail{position:fixed;right:16px;top:50%;transform:translateY(-50%);z-index:20;display:flex;flex-direction:column;gap:10px}
+.rd{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.2);cursor:pointer;transition:.3s}.rd.on{background:var(--lm);transform:scale(1.5);box-shadow:0 0 12px var(--lm)}
+#nav{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);z-index:20;display:flex;align-items:center;gap:12px;background:rgba(16,20,26,.82);backdrop-filter:blur(14px);border:1px solid var(--ln);border-radius:99px;padding:6px 8px}
+#nav button{width:36px;height:36px;border-radius:50%;border:1px solid var(--ln);background:transparent;color:var(--tx);font-size:15px}#nav button:hover{background:var(--lm);color:#000}
+#nav span{font-family:var(--mn);font-size:12px;color:var(--dm);min-width:56px;text-align:center}#nav b{color:var(--tx)}
+#toasts{position:fixed;left:18px;bottom:18px;z-index:25;display:flex;flex-direction:column;gap:8px;pointer-events:none}
+.toast{background:rgba(16,20,26,.92);border:1px solid rgba(255,77,94,.5);border-left:3px solid var(--rd);border-radius:10px;padding:9px 13px;font-size:12px;animation:ti .4s,to .4s 3.8s forwards;backdrop-filter:blur(8px)}
+.toast span{display:block;font-family:var(--mn);font-size:10px;color:var(--dm);margin-top:2px}
+@keyframes ti{from{opacity:0;transform:translateX(-30px)}}@keyframes to{to{opacity:0;transform:translateX(-30px)}}
+@media(max-height:760px){#wrap{scroll-snap-type:y proximity}}
+@media(max-width:900px){.two,.fin{grid-template-columns:1fr}.cards{grid-template-columns:1fr 1fr}.slide{padding:8vh 5.5vw 12vh}#rail,#toasts{display:none}.who{top:2vh;right:5vw}#wrap{scroll-snap-type:y proximity}.flow{flex-wrap:wrap;gap:8px}.arr{display:none}.node{flex:1 1 45%}.pkt{display:none}}
+@media(max-width:520px){.cards{grid-template-columns:1fr}}
+
+/* ===== v2 ===== */
+#cg{position:fixed;left:0;top:0;width:360px;height:360px;margin:-180px 0 0 -180px;border-radius:50%;background:radial-gradient(circle,rgba(182,255,59,.10),transparent 65%);pointer-events:none;z-index:1;mix-blend-mode:screen}
+@media(pointer:coarse){#cg{display:none}}
+.gw{transition:background-color 1.2s}
+#scan{position:fixed;left:0;right:0;height:140px;z-index:40;pointer-events:none;background:linear-gradient(180deg,transparent,rgba(182,255,59,.14),transparent);top:-140px;opacity:0}
+#scan.go{animation:sc .9s ease}
+@keyframes sc{0%{top:-140px;opacity:1}100%{top:100%;opacity:1}}
+#alarm{position:fixed;inset:0;z-index:60;pointer-events:none;opacity:0;display:flex;align-items:center;justify-content:center}
+#alarm b{font-family:var(--hd);font-size:clamp(1.4rem,3.4vw,2.6rem);font-weight:800;padding:14px 30px;border-radius:16px;backdrop-filter:blur(8px)}
+#alarm.bad{animation:al 1.5s;box-shadow:inset 0 0 160px 30px rgba(255,77,94,.55)}#alarm.bad b{color:#fff;background:rgba(255,77,94,.88);animation:jt .25s 4}
+#alarm.good{animation:al 1.5s;box-shadow:inset 0 0 140px 20px rgba(182,255,59,.4)}#alarm.good b{color:#000;background:rgba(182,255,59,.92)}
+@keyframes al{0%{opacity:0}10%{opacity:1}70%{opacity:1}100%{opacity:0}}
+@keyframes jt{25%{transform:translate(-5px,2px) skewX(-4deg)}75%{transform:translate(5px,-2px) skewX(4deg)}}
+#hud{position:fixed;top:14px;left:16px;z-index:30;font-family:var(--mn);font-size:11px;background:rgba(16,20,26,.82);border:1px solid var(--ln);border-radius:99px;padding:7px 14px;backdrop-filter:blur(10px);display:flex;gap:6px;align-items:center}
+#hud span{color:var(--dm)}#hud b{color:var(--lm);font-size:13px}#hud.up{animation:hup .7s}
+@keyframes hup{40%{transform:scale(1.18);box-shadow:0 0 34px var(--lm)}}
+.wm{position:absolute;right:3vw;bottom:2vh;font-family:var(--hd);font-weight:800;font-size:min(26vw,360px);line-height:.8;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.065);pointer-events:none;z-index:0;animation:wmf 12s ease-in-out infinite}
+@keyframes wmf{50%{transform:translateY(-16px)}}
+.w{display:inline-block;opacity:0;transform:translateY(55%) rotateX(-80deg);transform-origin:bottom;transition:opacity .6s,transform .8s cubic-bezier(.2,.9,.2,1);transition-delay:calc(var(--i)*75ms + .12s)}
+.slide.on .w{opacity:1;transform:none}
+h2.sp{perspective:700px}h2.sp em{background:none;color:inherit}
+h2.sp em .w{background:linear-gradient(100deg,var(--lm),var(--cy));-webkit-background-clip:text;background-clip:text;color:transparent}
+.go,.op,.ch,.tbb{position:relative;overflow:hidden}
+.rp{position:absolute;border-radius:50%;background:rgba(255,255,255,.45);transform:scale(0);animation:rp .6s ease-out;pointer-events:none}
+@keyframes rp{to{transform:scale(4);opacity:0}}
+.stat,.node{transition:transform .25s ease}
+.cubew{position:absolute;right:9vw;top:50%;margin-top:-90px;width:180px;height:180px;perspective:800px;z-index:1}
+.cube{position:relative;width:100%;height:100%;transform-style:preserve-3d;animation:rot 20s linear infinite}
+@keyframes rot{to{transform:rotateX(360deg) rotateY(360deg)}}
+.fz{position:absolute;inset:0;border:1px solid rgba(182,255,59,.55);background:rgba(182,255,59,.05);display:flex;align-items:center;justify-content:center;font-size:3.2rem;box-shadow:inset 0 0 40px rgba(182,255,59,.14)}
+.fz:nth-child(1){transform:translateZ(90px)}.fz:nth-child(2){transform:rotateY(90deg) translateZ(90px)}.fz:nth-child(3){transform:rotateY(180deg) translateZ(90px)}
+.fz:nth-child(4){transform:rotateY(-90deg) translateZ(90px)}.fz:nth-child(5){transform:rotateX(90deg) translateZ(90px)}.fz:nth-child(6){transform:rotateX(-90deg) translateZ(90px)}
+.core{position:absolute;left:50%;top:50%;width:70px;height:70px;margin:-35px;border-radius:50%;background:radial-gradient(circle,var(--lm),transparent 70%);filter:blur(8px);animation:corep 2s infinite}
+@keyframes corep{50%{transform:scale(1.5);opacity:.6}}
+.osi{display:flex;gap:6px;margin-top:22px;align-items:flex-end}
+.os{flex:1;padding:6px 4px 8px;border-radius:10px;border:1px solid var(--ln);background:var(--pn);text-align:center;font-family:var(--mn);font-size:10.5px;color:var(--dm);line-height:1.5}
+.os.hot{border-color:var(--lm);color:#000;background:var(--lm);font-weight:700;animation:hotp 2s infinite}
+@keyframes hotp{0%,100%{box-shadow:0 0 22px -4px var(--lm)}50%{box-shadow:0 0 46px 4px var(--lm)}}
+.mq{overflow:hidden;margin-top:12px;border-block:1px solid var(--ln);padding:10px 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.mqt{display:flex;gap:10px;width:max-content;animation:mq 45s linear infinite}.mq:hover .mqt{animation-play-state:paused}
+.mqt span{font-family:var(--mn);font-size:12px;border:1px solid var(--ln);border-radius:99px;padding:6px 14px;white-space:nowrap;color:#C9D0DA}
+.mqt span b{color:var(--lm);margin-right:6px}.mqt span.hl{border-color:rgba(255,77,94,.6);color:#ffb3bb}.mqt span.hl b{color:var(--rd)}
+@keyframes mq{to{transform:translateX(-50%)}}
+.mq.abs{position:absolute;left:6vw;right:7vw;bottom:66px;z-index:2}
+.flt{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.fb2{font-family:var(--mn);font-size:11.5px;color:var(--dm);border:1px solid var(--ln);background:transparent;border-radius:99px;padding:6px 14px;transition:.25s}
+.fb2.on{color:#000;background:var(--cy);border-color:var(--cy)}
+.fc{height:215px;transition:opacity .4s,transform .4s,filter .4s}.fc.dim{opacity:.2;transform:scale(.93);filter:grayscale(1)}
+.ex{font-family:var(--mn);font-size:10.5px;color:var(--yl);margin-top:8px;line-height:1.45;word-break:break-word}
+.tbs{margin-top:16px;max-width:540px}
+.tbh{display:flex;gap:6px;flex-wrap:wrap}
+.tbb{font-size:12px;color:var(--dm);background:rgba(255,255,255,.04);border:1px solid var(--ln);border-radius:99px;padding:7px 13px;transition:.25s}
+.tbb:hover{color:var(--tx)}.tbb.on{color:#000;background:var(--lm);border-color:var(--lm);font-weight:600}
+.tbp{display:none;margin-top:12px;padding:14px 16px;background:var(--pn);border:1px solid var(--ln);border-radius:14px;font-size:13.2px;line-height:1.6;color:#C3CAD5;min-height:168px}
+.tbp.on{display:block;animation:pop .4s}
+.tbp b{color:#fff}.tbp u{text-decoration:none;color:var(--rd);font-weight:600}
+.tbp code{font-family:var(--mn);font-size:11.5px;color:var(--cy);background:rgba(77,214,255,.08);padding:1px 5px;border-radius:5px}
+.stp{list-style:none;display:flex;flex-direction:column;gap:11px}.stp li{display:flex;gap:11px;align-items:flex-start}
+.stp li b{flex:none;width:24px;height:24px;border-radius:50%;background:var(--lm);color:#000;display:flex;align-items:center;justify-content:center;font-size:12px;margin-top:1px}
+.tbp.on .stp li{animation:stp .5s backwards}.tbp.on .stp li:nth-child(2){animation-delay:.25s}.tbp.on .stp li:nth-child(3){animation-delay:.5s}
+@keyframes stp{from{opacity:0;transform:translateX(-18px)}}
+.def{list-style:none;display:flex;flex-direction:column;gap:8px}.def li{padding-left:22px;position:relative}.def li::before{content:'✔';position:absolute;left:0;color:var(--lm)}
+.gt{border-bottom:1px dotted var(--cy);cursor:help;position:relative;color:var(--cy)}
+.gt::after{content:attr(data-g);position:absolute;left:0;bottom:135%;width:max-content;max-width:230px;background:#0A0E13;border:1px solid var(--cy);color:#DDE3EC;font-size:11.5px;line-height:1.45;padding:8px 10px;border-radius:9px;opacity:0;transform:translateY(4px);transition:.2s;pointer-events:none;z-index:9;font-family:var(--bd);font-weight:400;white-space:normal}
+.gt:hover::after,.gt:focus::after{opacity:1;transform:none}
+@media(max-width:900px){.cubew,.wm{display:none}.mq.abs{display:none}#hud{top:auto;bottom:70px;left:10px}.fc{height:230px}}
+</style>
+</head>
+<body>
+<div class="gb"></div><div class="gw g1"></div><div class="gw g2"></div><div id="bar"></div><div id="toasts"></div>
+<div id="wrap">
+
+<section class="slide on"><canvas id="net"></canvas><span class="who"><b>1</b> / 9 taqdimotchi</span><div class="in">
+<div class="tag rv d1">Tarmoq xavfsizligi fani · OSI 7-sath</div>
+<h1 class="hero rv d2"><span class="gl a" data-t="ILOVA SATHI">ILOVA SATHI</span><br><span class="gl b" data-t="HUJUMLARI">HUJUMLARI</span></h1>
+<p class="lead rv d3">Eng ko'p hujum qilinadigan qatlam. Bu yerda o'qimaysiz — <b>o'zingiz hujum qilib, himoyalanib ko'rasiz</b>.</p>
+<div class="boot rv d4" id="boot"></div>
+<div class="stats rv d5"><div class="stat"><b class="cnt" data-n="8">0</b><span>hujum turi</span></div><div class="stat"><b class="cnt" data-n="5">0</b><span>jonli laboratoriya</span></div><div class="stat"><b class="cnt" data-n="9">0</b><span>taqdimotchi</span></div></div>
+<div class="hint rv d5">⌄ pastga suring · yoki → tugmasini bosing</div>
+</div></section>
+
+<section class="slide"><span class="who"><b>2</b> / 9 taqdimotchi</span><div class="in">
+<div class="tag rv d1">01 · Ilova sathi</div>
+<h2 class="rv d2">Nega aynan <em>7-sath</em> nishon?</h2>
+<p class="lead rv d3">Bu qatlam foydalanuvchi bilan <b>to'g'ridan-to'g'ri</b> ishlaydi: forma, login, API, fayl yuklash. Firewall paketni ko'radi, lekin so'rovning <b>ma'nosini</b> (SQL, JavaScript) tushunmaydi. Quyida so'rov yo'li — qizil nuqta xavf zonasi.</p>
+<div class="flow rv d4"><i class="pkt"></i>
+<div class="node"><div class="ic">USR</div><b>Foydalanuvchi</b><small>Brauzer, mobil ilova</small><span class="hit">Fishing</span><span class="hit">Brute-force</span></div><div class="arr">→</div>
+<div class="node n2"><div class="ic">WAF</div><b>CDN / WAF</b><small>Trafik filtri</small><span class="hit">HTTP Flood</span></div><div class="arr">→</div>
+<div class="node"><div class="ic">WEB</div><b>Veb-server</b><small>Nginx, Apache</small><span class="hit">Eski versiya</span></div><div class="arr">→</div>
+<div class="node n2"><div class="ic">APP</div><b>Python ilova</b><small>Flask, Django</small><span class="hit">XSS</span><span class="hit">CSRF</span><span class="hit">Injection</span></div><div class="arr">→</div>
+<div class="node"><div class="ic">DB</div><b>Ma'lumotlar bazasi</b><small>PostgreSQL</small><span class="hit">SQLi</span></div></div>
+<div class="cap rv d5">// HTTP · HTTPS · DNS · SMTP · FTP · SSH · REST API — hammasi shu sathda</div>
+</div></section>
+
+<section class="slide"><span class="who"><b>3</b> / 9 taqdimotchi</span><div class="in">
+<div class="tag rv d1">02 · Hujumlar xaritasi</div>
+<h2 class="rv d2">8 ta <em>tahdid</em> — kartani bosing 👆</h2>
+<div class="cards rv d3" id="cards"></div>
+</div></section>
+
+<section class="slide"><span class="who"><b>4</b> / 9 taqdimotchi</span><div class="in two"><div>
+<div class="tag rv d1">03 · SQL Injection</div>
+<h2 class="rv d2">Loginni <em>buzib</em> kiring</h2>
+<p class="lead rv d3">Foydalanuvchi matni SQL'ga <b>yopishtirilsa</b>, hujumchi so'rov mantig'ini o'zgartiradi. Zaif serverda <b>parolsiz</b> admin bo'ling, so'ng himoyani yoqing.</p>
+<div class="tbs rv d4"><div class="tbh"><button class="tbb on" data-k="0">💡 Oddiy so'z bilan</button><button class="tbb" data-k="1">⚙ Qanday ishlaydi</button><button class="tbb" data-k="2">🛡 Himoya</button></div><div class="tbp on"><p>Ofitsiantga qog'ozga <b>«Menga osh keltiring»</b> deb yozib berdingiz. Hujumchi esa yozadi: <b>«Menga osh keltiring <u>va kassadagi pulni ham bering</u>»</b>. Ofitsiant qog'ozni so'zma-so'z bajaradi. Server ham shunday: kiritilgan matnni ma'lumot emas, <b>buyruq</b> deb o'ylaydi.</p></div><div class="tbp"><ol class="stp"><li><b>1</b><span>Hujumchi login maydoniga <code>admin' --</code> yozadi.</span></li><li><b>2</b><span>Server matnni so'rovga yopishtiradi: <code>WHERE name='admin' --' AND pw=''</code></span></li><li><b>3</b><span><code>--</code> dan keyingi hamma narsa <b>izoh</b> bo'lib qoladi — parol tekshiruvi yo'qoladi va admin sifatida kiriladi.</span></li></ol></div><div class="tbp"><ul class="def"><li><b>Parametrlashtirilgan so'rov</b> — matn faqat ma'lumot bo'lib qoladi, hech qachon buyruq emas.</li><li>Baza bilan <span class="gt" tabindex="0" data-g="Baza bilan Python obyektlari orqali ishlash vositasi; so'rovlarni xavfsiz tuzadi.">ORM</span> orqali ishlash.</li><li>Bazada <b>minimal huquq</b>: ilova jadvallarni o'chira olmasin.</li><li>Xato xabarlarida SQL matnini foydalanuvchiga ko'rsatmaslik.</li></ul></div></div></div>
+<div class="lab rv d3" id="lab1">
+<div class="lh"><label class="sw"><input type="checkbox" id="sw1"><span class="tr"></span><b>Server: ZAIF ⚠</b></label><div class="chips"><button class="ch" data-u="admin' --">admin' --</button><button class="ch" data-u="' OR '1'='1">' OR '1'='1</button><button class="ch" data-u="admin" data-p="S3cret!">to'g'ri kirish</button></div></div>
+<div class="fm"><input id="u1" value="admin' --" placeholder="login"><input id="p1" placeholder="parol"><button class="go" id="g1">Kirish</button></div>
+<div class="con" id="c1"></div><pre class="snip" id="s1"></pre></div>
+</div></section>
+
+<section class="slide"><span class="who"><b>5</b> / 9 taqdimotchi</span><div class="in two"><div>
+<div class="tag rv d1">04 · Cross-Site Scripting</div>
+<h2 class="rv d2">Sahifaga <em>begona kod</em></h2>
+<p class="lead rv d3">Hujumchining skripti sahifada saqlanib, <b>boshqa foydalanuvchilar</b> brauzerida ishlaydi va cookie'ni o'g'irlaydi. Quyida xavfsiz simulyatsiya — hech narsa haqiqatda bajarilmaydi.</p>
+<div class="tbs rv d4"><div class="tbh"><button class="tbb on" data-k="0">💡 Oddiy so'z bilan</button><button class="tbb" data-k="1">⚙ Qanday ishlaydi</button><button class="tbb" data-k="2">🛡 Himoya</button></div><div class="tbp on"><p>Jamoat e'lonlar taxtasiga kimdir qog'oz yopishtirdi: <b>«Bu yerga kelganlar hamyonini menga bersin»</b>. Hamma o'qiydi va <b>ishonib bajaradi</b>. Brauzer ham sahifadagi har bir skriptga ishonadi — uni kim yozganiga qaramaydi.</p></div><div class="tbp"><ol class="stp"><li><b>1</b><span>Hujumchi izoh maydoniga <code>&lt;img onerror=…&gt;</code> kabi kod yozadi.</span></li><li><b>2</b><span>Sayt uni tekshirmay bazaga saqlaydi (<b>Stored XSS</b>).</span></li><li><b>3</b><span>Boshqa foydalanuvchi sahifani ochganda kod <b>uning brauzerida</b> ishlaydi va <span class="gt" tabindex="0" data-g="Brauzer saqlaydigan kichik fayl — sayt sizni tanishi uchun kerak (masalan, tizimga kirganingiz).">cookie</span> hujumchiga ketadi.</span></li></ol></div><div class="tbp"><ul class="def"><li><b>Escape</b>: <code>&lt;</code> belgisini <code>&amp;lt;</code> ga aylantirish — brauzer uni matn deb ko'rsatadi.</li><li><span class="gt" tabindex="0" data-g="Content-Security-Policy — brauzerga qaysi manbadan skript ishlatishga ruxsat borligini aytadi.">CSP</span> sarlavhasi: begona skript ishlamaydi.</li><li><span class="gt" tabindex="0" data-g="JavaScript o'qiy olmaydigan cookie belgisi.">HttpOnly</span> cookie: skript uni o'qiy olmaydi.</li><li>Tayyor tozalagichlar: <b>bleach</b> (Python), <b>DOMPurify</b> (JS).</li></ul></div></div></div>
+<div class="lab rv d3" id="lab2">
+<div class="lh"><label class="sw"><input type="checkbox" id="sw2"><span class="tr"></span><b>Sayt: ZAIF ⚠</b></label><div class="chips"><button class="ch" data-u="&lt;img src=x onerror=steal(document.cookie)&gt;">&lt;img onerror&gt;</button><button class="ch" data-u="&lt;script&gt;steal()&lt;/script&gt;">&lt;script&gt;</button><button class="ch" data-u="Zo'r maqola!">oddiy izoh</button></div></div>
+<div class="page"><div class="pb">💬 Izohlar</div><div id="cl"><div class="cm">Vali: Foydali ma'lumot, rahmat!</div></div><div class="abx" id="abx"><b>🍪 Cookie o'g'irlandi!</b><code>sid=9f3a7c21e8b4…</code><span>Skript boshqa foydalanuvchi brauzerida ishladi</span></div></div>
+<div class="fm"><input id="u2" placeholder="Izoh yozing…"><button class="go" id="g2">Yuborish</button></div>
+<div class="con" id="c2"></div><pre class="snip" id="s2"></pre></div>
+</div></section>
+
+<section class="slide"><span class="who"><b>6</b> / 9 taqdimotchi</span><div class="in two"><div>
+<div class="tag rv d1">05 · CSRF</div>
+<h2 class="rv d2">Sizning <em>nomingizdan</em></h2>
+<p class="lead rv d3">Bankka kirgan holda zararli havolani bossangiz, brauzer <b>cookie'ni avtomatik</b> yuboradi va hujumchi so'rovi qonuniy ko'rinadi. Hujumni ishga tushiring!</p>
+<div class="tbs rv d4"><div class="tbh"><button class="tbb on" data-k="0">💡 Oddiy so'z bilan</button><button class="tbb" data-k="1">⚙ Qanday ishlaydi</button><button class="tbb" data-k="2">🛡 Himoya</button></div><div class="tbp on"><p>Bank cheki <b>imzo</b> bilan to'lanadi, lekin chekni <b>kim yozgani</b> tekshirilmaydi. Siz bankka kirganingizda brauzerda «imzo» (<span class="gt" tabindex="0" data-g="Brauzer saqlaydigan kichik fayl — sayt sizni tanishi uchun kerak (masalan, tizimga kirganingiz).">cookie</span>) turadi. Hujumchi sizni shunday chek yozishga <b>yashirincha undaydi</b> — imzo esa sizniki.</p></div><div class="tbp"><ol class="stp"><li><b>1</b><span>Siz bank.uz'ga kirdingiz — cookie brauzerda saqlandi.</span></li><li><b>2</b><span>Boshqa oynada zararli sahifa yashirin forma yuboradi: <code>POST /transfer?to=hacker</code>.</span></li><li><b>3</b><span>Brauzer cookie'ni <b>avtomatik</b> qo'shadi — bank so'rovni siznikidek qabul qiladi.</span></li></ol></div><div class="tbp"><ul class="def"><li><b>CSRF token</b>: faqat haqiqiy sahifada bor yashirin kod — hujumchi uni bila olmaydi.</li><li><code>SameSite</code> cookie: boshqa saytdan kelgan so'rovga cookie qo'shilmaydi.</li><li><code>Origin</code>/<code>Referer</code> sarlavhasini tekshirish.</li><li>Muhim amalda qayta tasdiq (SMS/OTP kod).</li></ul></div></div></div>
+<div class="lab rv d3" id="lab3">
+<div class="lh"><label class="sw"><input type="checkbox" id="sw3"><span class="tr"></span><b>CSRF token: O'CHIQ ⚠</b></label></div>
+<div class="bal"><span>HISOB · bank.uz</span><b id="bl">$10,000</b></div>
+<button class="go" id="g3" style="padding:11px 18px;width:100%">▶ Hujumni ishga tushirish</button>
+<div class="con" id="c3" style="min-height:150px"></div><pre class="snip" id="s3"></pre></div>
+</div></section>
+
+<section class="slide"><span class="who"><b>7</b> / 9 taqdimotchi</span><div class="in two"><div>
+<div class="tag rv d1">06 · Brute-force</div>
+<h2 class="rv d2">Parolingiz <em>qancha</em> bardosh beradi?</h2>
+<p class="lead rv d3">Hujumchi parolni avtomatik minglab marta sinaydi. Parolingizni yozing — <b>topish vaqtini</b> hisoblaymiz. <b>Parol hech qayerga yuborilmaydi</b>, hammasi brauzeringizda.</p>
+<div class="tbs rv d4"><div class="tbh"><button class="tbb on" data-k="0">💡 Oddiy so'z bilan</button><button class="tbb" data-k="1">⚙ Qanday ishlaydi</button><button class="tbb" data-k="2">🛡 Himoya</button></div><div class="tbp on"><p>4 xonali kodli qulf: 0000 dan 9999 gacha sinab chiqsa — <b>10 000 urinishda</b> ochiladi. 12 xonali bo'lsa — <b>trillionlab</b> urinish. Parol ham shunday: qanchalik <b>uzun</b> bo'lsa, buzish shunchalik qiyin.</p></div><div class="tbp"><ol class="stp"><li><b>1</b><span>Hujumchi eng ko'p ishlatiladigan parollar lug'atini sinaydi (<code>123456</code>, <code>password</code>).</span></li><li><b>2</b><span>Lug'at topolmasa, barcha kombinatsiyalarni ketma-ket sinaydi.</span></li><li><b>3</b><span>Bot sekundiga minglab urinish qiladi — himoyasiz saytda parol tez topiladi.</span></li></ol></div><div class="tbp"><ul class="def"><li><b>Uzun</b> parol yoki parol-ibora (16+ belgi): uzunlik murakkablikdan muhimroq.</li><li>Sekin xesh + <span class="gt" tabindex="0" data-g="Salt — parolga qo'shiladigan tasodifiy qiymat; bir xil parollar turli xesh beradi.">sol</span>: scrypt / bcrypt / argon2.</li><li><span class="gt" tabindex="0" data-g="Bir IP'dan so'rovlar sonini cheklash.">Rate limit</span> va vaqtincha bloklash.</li><li><span class="gt" tabindex="0" data-g="Ko'p faktorli tasdiqlash: parol + telefon kodi.">MFA</span> — parol topilsa ham kirib bo'lmaydi.</li></ul></div></div></div>
+<div class="lab rv d3" id="lab4">
+<div class="fm"><input id="pw" value="ali1234" maxlength="24" placeholder="parol yozing"><button class="go" id="g4">💥 Buzib ko'r</button></div>
+<div class="mt"><i id="mi"></i></div><div class="crk" id="crk">••••••••</div><div class="rows" id="rw"></div><pre class="snip" id="s4"></pre></div>
+</div></section>
+
+<section class="slide"><span class="who"><b>8</b> / 9 taqdimotchi</span><div class="in two"><div>
+<div class="tag rv d1">07 · HTTP Flood (L7 DDoS)</div>
+<h2 class="rv d2">Serverni <em>qutqaring</em></h2>
+<p class="lead rv d3">Minglab "oddiy" ko'rinadigan so'rov serverni to'ldiradi. <b>Qizil — hujumchi</b>, <b>yashil — haqiqiy mijoz</b>. Hujumni kuchaytiring, keyin himoyani yoqing.</p>
+<div class="tbs rv d4"><div class="tbh"><button class="tbb on" data-k="0">💡 Oddiy so'z bilan</button><button class="tbb" data-k="1">⚙ Qanday ishlaydi</button><button class="tbb" data-k="2">🛡 Himoya</button></div><div class="tbp on"><p>Kichkina kafega 10 000 odam bir vaqtda kirib, hech narsa buyurtma qilmay turib oldi. <b>Haqiqiy mijozlar</b> kira olmaydi. HTTP Flood ham shunday: server <b>band</b> bo'lib, odamlarga xizmat qila olmaydi.</p></div><div class="tbp"><ol class="stp"><li><b>1</b><span>Hujumchi minglab zararlangan qurilmadan <span class="gt" tabindex="0" data-g="Hujumchi nazoratidagi zararlangan kompyuterlar tarmog'i.">botnet</span> yig'adi.</span></li><li><b>2</b><span>Hammasi bir vaqtda saytga oddiy ko'rinadigan so'rovlar yuboradi.</span></li><li><b>3</b><span>Server band — haqiqiy foydalanuvchilar sahifani ocholmaydi.</span></li></ol></div><div class="tbp"><ul class="def"><li><b>Rate limit</b>: har IP'ga limit, oshsa <code>429 Too Many Requests</code>.</li><li><span class="gt" tabindex="0" data-g="Web Application Firewall — veb-ilova so'rovlarini tekshiruvchi qalqon.">WAF</span>: shubhali naqshlarni to'sadi.</li><li><span class="gt" tabindex="0" data-g="Sayt nusxalarini dunyoning ko'p joyida saqlab, yukni taqsimlovchi xizmat.">CDN</span>: yuk dunyo bo'ylab taqsimlanadi.</li><li>CAPTCHA va avtomatik kengayish (autoscaling).</li></ul></div></div></div>
+<div class="lab rv d3" id="lab5">
+<div class="lh"><label class="sw"><input type="checkbox" id="rl"><span class="tr"></span><b>Rate limit</b></label><label class="sw"><input type="checkbox" id="wf"><span class="tr"></span><b>WAF</b></label><label class="rg">Hujum <input type="range" id="ri" min="1" max="10" value="6"></label></div>
+<canvas id="arena"></canvas><div class="st2" id="st"></div><pre class="snip" id="s5"></pre></div>
+</div></section>
+
+<section class="slide"><span class="who"><b>9</b> / 9 taqdimotchi</span><div class="in fin"><div>
+<div class="tag rv d1">08 · Xulosa</div>
+<h2 class="rv d2">Chuqur himoya: <em>6 qatlam</em></h2>
+<div class="rv d3">
+<div class="ly"><span class="num">1</span><div><b>Xavfsiz kod</b><small>Validatsiya, parametrlashtirish, escape</small></div></div>
+<div class="ly"><span class="num">2</span><div><b>Autentifikatsiya</b><small>MFA, kuchli xesh, seans muddati</small></div></div>
+<div class="ly"><span class="num">3</span><div><b>WAF + Rate limit</b><small>Signature qoidalar, 429, CAPTCHA</small></div></div>
+<div class="ly"><span class="num">4</span><div><b>HTTPS va sarlavhalar</b><small>TLS, CSP, HttpOnly, SameSite</small></div></div>
+<div class="ly"><span class="num">5</span><div><b>Monitoring</b><small>Log tahlili, IDS/IPS, ogohlantirish</small></div></div>
+<div class="ly"><span class="num">6</span><div><b>Yangilash</b><small>Patch, zaiflik skaneri, kod auditi</small></div></div></div></div>
+<div class="qz rv d4" id="qz"></div>
+</div></section>
+
+</div>
+<div id="rail"></div>
+<div id="nav"><button id="pv">←</button><span><b id="cn">01</b> / 09</span><button id="nx">→</button></div>
+<script>
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const rnd=(a,b)=>a+Math.random()*(b-a),ri=(a,b)=>Math.floor(rnd(a,b+1));
+const wait=ms=>new Promise(r=>setTimeout(r,ms));
+const RX=/(#[^\n]*)|((?:\b[fr])?"[^"\n]*"|(?:\b[fr])?'[^'\n]*')|(\b(?:import|from|def|return|class|if|while|for|in|not|and|or|None|True|False|as|self)\b)|(\b\d[\d_]*\b)|(\b[a-zA-Z_]\w*(?=\())/g;
+function hl(code){return esc(code).replace(RX,(m,a,b,c,d)=>a?`<span class=c>${m}</span>`:b?`<span class=s>${m}</span>`:c?`<span class=k>${m}</span>`:d?`<span class=nn>${m}</span>`:`<span class=f>${m}</span>`).split('\n').map(l=>`<span class=ln>${l||' '}</span>`).join('')}
+const snip=(id,code)=>{$('#'+id).innerHTML=hl(code)};
+function breach(el){if(!window.__rdy)return;alarm(false);el.classList.remove('br');void el.offsetWidth;el.classList.add('br');setTimeout(()=>el.classList.remove('br'),950)}
+function confetti(el){const r=el.getBoundingClientRect();for(let i=0;i<50;i++){const d=document.createElement('i');d.className='cf';d.style.cssText=`left:${r.left+r.width/2}px;top:${r.top+70}px;background:${['#B6FF3B','#4DD6FF','#FF4D5E','#FFC24A'][i%4]}`;document.body.appendChild(d);d.animate([{transform:'translate(0,0) rotate(0)',opacity:1},{transform:`translate(${rnd(-260,260)}px,${rnd(180,420)}px) rotate(${rnd(0,720)}deg)`,opacity:0}],{duration:rnd(1200,2200),easing:'cubic-bezier(.2,.7,.3,1)'}).onfinish=()=>d.remove()}}
+function swlabel(id,on,off,lab){const i=$('#'+id),b=i.parentElement.querySelector('b');const u=()=>{b.textContent=i.checked?on:off;lab&&lab()};i.onchange=u;u()}
+
+/* ---------- Flip cards ---------- */
+const A=[["💉","SQL Injection","Kiritilgan matn orqali SQL so'roviga zararli buyruq qo'shish.","Juda yuqori","hi","Parametrlashtirilgan so'rov (?), ORM, bazada minimal huquq.","inp","Login: admin' --"],
+["🕷","XSS","Sahifaga zararli JavaScript joylab, cookie o'g'irlash.","Yuqori","hi","Chiqishni escape qilish, CSP sarlavhasi, HttpOnly cookie.","inp","Izoh: &lt;img onerror=…&gt;"],
+["🎭","CSRF","Foydalanuvchi bilmagan holda uning nomidan so'rov yuborish.","O'rta","md","CSRF token, SameSite cookie, Origin tekshiruvi.","auth","Yashirin forma bank so'rovini yuboradi"],
+["🔨","Brute-force","Parolni avtomatik minglab marta sinab ko'rish.","Yuqori","hi","Uzun parol, scrypt/bcrypt, rate limit, MFA.","auth","123456, password, qwerty…"],
+["🌊","HTTP Flood","Ko'p qonuniy ko'rinishdagi so'rov bilan serverni to'ldirish.","Yuqori","hi","Rate limit (429), WAF, CDN, CAPTCHA.","trf","10 000 bot bir soniyada bosh sahifada"],
+["🎣","Fishing","Soxta sayt orqali login va parolni aldab olish.","Yuqori","hi","MFA, domen tekshiruvi, xodimlarni o'qitish, SPF/DKIM.","auth","bank-uz-login.example (soxta)"],
+["🍪","Session Hijacking","Faol seans identifikatorini o'g'irlab, egasi o'rniga kirish.","O'rta","md","HTTPS, HttpOnly+Secure cookie, seans muddati.","auth","O'g'irlangan cookie bilan kirish"],
+["💻","Command Injection","Ilova orqali serverda OS buyrug'ini bajarish.","Juda yuqori","hi","shell'dan qochish, argumentlarni ro'yxat sifatida uzatish.","inp","Fayl nomi: a.txt; ls"]];
+$('#cards').innerHTML=A.map(a=>`<div class="fc"><div class="fi"><div class="ff"><div class="e">${a[0]}</div><h3>${a[1]}</h3><p>${a[2]}</p><span class="sv ${a[4]}">${a[3]}</span></div><div class="fb"><div class="e">🛡</div><h3>Himoya</h3><p>${a[5]}</p><div class="ex">💬 ${a[7]}</div></div></div></div>`).join('');
+$$('.fc').forEach(c=>c.onclick=()=>c.classList.toggle('fl'));
+document.addEventListener('pointermove',e=>{const c=e.target.closest('.ff');if(c){const r=c.getBoundingClientRect();c.style.setProperty('--mx',e.clientX-r.left+'px');c.style.setProperty('--my',e.clientY-r.top+'px')}});
+
+/* ---------- LAB 1: SQLi ---------- */
+const USERS={admin:'S3cret!',ali:'1234'};
+const S1={bad:`q = f"SELECT * FROM users WHERE name='{u}' AND pw='{p}'"
+db.execute(q)   # ❌ matn so'rovga yopishtirilgan`,ok:`q = "SELECT pw_hash FROM users WHERE name = ?"
+row = db.execute(q, (u,)).fetchone()   # ✅ parametr`};
+function run1(){const u=$('#u1').value,p=$('#p1').value,safe=$('#sw1').checked,c=$('#c1');
+ const inj=/'\s*(--|#|\/\*)/.test(u)||/'\s*or\s+['"]?\w+['"]?\s*=\s*['"]?\w+/i.test(u+p);
+ let h=safe?`<div class=nt><span>🛡 So'rov:</span> SELECT pw_hash FROM users WHERE name = ?<br><span>parametr:</span> ${esc(JSON.stringify(u))} <span>→ faqat ma'lumot</span></div>`
+  :`<div class=nt><span>⚠ So'rov:</span> SELECT * FROM users WHERE name='${inj?'<em>'+esc(u)+'</em>':esc(u)}' AND pw='${esc(p)}'</div>`;
+ if(!safe&&inj){const m=u.match(/^\s*(\w+)\s*'/),usr=m&&USERS[m[1]]?m[1]:'admin';h+=`<div class=bd>🔓 <em>KIRILDI: ${esc(usr)}</em> — parolsiz! Hujum muvaffaqiyatli</div>`;breach($('#lab1'))}
+ else if(USERS[u]!==undefined&&USERS[u]===p)h+=`<div class=gd>✅ Kirildi: ${esc(u)} (to'g'ri parol)</div>`;
+ else h+=inj?`<div class=gd>🛡 Hujum urinishi zararsiz: qiymat oddiy matn sifatida tekshirildi → ❌ noto'g'ri login</div>`:`<div class=nt>❌ Noto'g'ri login yoki parol</div>`;
+ c.innerHTML=h;if(safe&&inj){xp('sqli',10);alarm(true)}}
+swlabel('sw1','Server: HIMOYALANGAN ✅','Server: ZAIF ⚠',()=>snip('s1',S1[$('#sw1').checked?'ok':'bad']));
+$$('#lab1 .ch').forEach(b=>b.onclick=()=>{$('#u1').value=b.dataset.u;$('#p1').value=b.dataset.p||'';run1()});
+$('#g1').onclick=run1;$('#sw1').addEventListener('change',run1);run1();
+
+/* ---------- LAB 2: XSS ---------- */
+const S2={bad:`html = f"<div>{comment}</div>"   # ❌ xom HTML`,ok:`import html
+out = f"<div>{html.escape(comment)}</div>"   # ✅`};
+function run2(add){const t=$('#u2').value,safe=$('#sw2').checked,c=$('#c2'),cl=$('#cl');if(!add)return;if(!t.trim())return;
+ const evil=/<\s*(script|img|svg|iframe)|onerror\s*=|javascript:/i.test(t);
+ const src=safe?`<div class="c">${esc(t)}</div>`:`<div class="c">${t}</div>`;
+ c.innerHTML=`<div class=nt><span>Brauzerga ketayotgan HTML:</span><br>${esc(src)}</div>`;
+ const d=document.createElement('div');d.className='cm';
+ if(!safe&&evil){d.textContent='… (skript bajarildi)';$('#abx').classList.add('on');breach($('#lab2'));setTimeout(()=>$('#abx').classList.remove('on'),3200);c.innerHTML+=`<div class=bd>🍪 <em>Skript ishladi!</em> Cookie hujumchiga yuborildi</div>`}
+ else{d.textContent=t;if(safe&&evil){xp('xss',10);alarm(true)}if(safe&&evil)c.innerHTML+=`<div class=gd>🛡 Teglar oddiy matn sifatida ko'rsatildi — zararsiz</div>`}
+ cl.appendChild(d);$('#u2').value=''}
+swlabel('sw2','Sayt: HIMOYALANGAN ✅','Sayt: ZAIF ⚠',()=>snip('s2',S2[$('#sw2').checked?'ok':'bad']));
+$$('#lab2 .ch').forEach(b=>b.onclick=()=>{$('#u2').value=b.dataset.u;run2(true)});
+$('#g2').onclick=()=>run2(true);$('#u2').onkeydown=e=>{if(e.key==='Enter')run2(true)};
+
+/* ---------- LAB 3: CSRF ---------- */
+const S3={bad:`if session.get("user"):
+    transfer(to, amount)   # ❌ faqat cookie tekshiriladi`,ok:`import secrets, hmac
+token = secrets.token_urlsafe(32)          # seansga saqlanadi
+ok = hmac.compare_digest(token, form_token)   # ✅`};
+swlabel('sw3',"CSRF token: YOQIQ ✅","CSRF token: O'CHIQ ⚠",()=>snip('s3',S3[$('#sw3').checked?'ok':'bad']));
+let busy3=false;
+function bal(to){const el=$('#bl'),from=parseInt(el.textContent.replace(/\D/g,'')),t0=performance.now();(function f(t){const p=Math.min(1,(t-t0)/900),v=Math.round(from+(to-from)*p);el.textContent='$'+v.toLocaleString('en-US');el.classList.toggle('lo',to<10000);if(p<1)requestAnimationFrame(f)})(t0)}
+$('#g3').onclick=async()=>{if(busy3)return;busy3=true;const b=$('#g3'),c=$('#c3'),safe=$('#sw3').checked;b.disabled=true;c.innerHTML='';bal(10000);
+ const L=[['nt',"👤 Siz bank.uz saytiga kirdingiz — brauzerda 🍪 cookie saqlandi"],['nt',"🎣 Siz <b>win-prize.example</b> havolasini bosdingiz"],['bd',"📨 Yashirin forma yuborildi: <em>POST bank.uz/transfer?to=hacker&amp;sum=5000</em>"],['nt',"🍪 Brauzer cookie'ni <b>avtomatik</b> qo'shdi"]];
+ for(const [k,t] of L){c.innerHTML+=`<div class=${k}>${t}</div>`;await wait(800)}
+ if(safe){xp('csrf',10);alarm(true)}if(safe)c.innerHTML+=`<div class=gd>🛡 Bank: CSRF token yo'q/noto'g'ri → <b>403 rad etildi</b> ✔ Pul joyida</div>`;
+ else{c.innerHTML+=`<div class=bd>💸 Bank: so'rov seans bilan keldi → <em>$5,000 o'tkazildi!</em></div>`;bal(5000);breach($('#lab3'))}
+ b.disabled=false;busy3=false};
+
+/* ---------- LAB 4: Brute-force ---------- */
+snip('s4',`import hashlib, os
+salt = os.urandom(16)
+h = hashlib.scrypt(pw.encode(), salt=salt, n=2**14, r=8, p=1)   # sekin xesh`);
+const WEAK=['123456','password','qwerty','12345678','111111','ali1234','admin','1234','parol','12345','iloveyou','123456789','qwerty123','uzbekistan'];
+function fmt(s){if(s<1)return'bir zumda ⚡';if(s<60)return Math.round(s)+' soniya';if(s<3600)return Math.round(s/60)+' daqiqa';if(s<86400)return Math.round(s/3600)+' soat';const y=s/31557600;if(y<1)return Math.round(s/86400)+' kun';if(y<1e3)return Math.round(y)+' yil';if(y<1e6)return Math.round(y/1e3)+' ming yil';if(y<1e9)return Math.round(y/1e6)+' mln yil';return"koinot yoshidan ko'p 😎"}
+function calc(){const p=$('#pw').value;let cs=0;if(/[a-z]/.test(p))cs+=26;if(/[A-Z]/.test(p))cs+=26;if(/\d/.test(p))cs+=10;if(/[^\w\s]/.test(p))cs+=33;
+ const weak=WEAK.includes(p.toLowerCase());const comb=p?Math.pow(cs||1,p.length)/2:0;
+ const R=[['Tez xesh (MD5, GPU)',1e10],['scrypt xesh',1e4],['Onlayn + rate limit (5/daq)',5/60]];
+ const bits=p?Math.log2(Math.max(2,comb*2)):0,pct=weak?4:Math.min(100,bits/80*100);
+ const m=$('#mi');m.style.width=Math.max(3,pct)+'%';m.style.background=pct<30?'var(--rd)':pct<60?'var(--yl)':'var(--lm)';
+ $('#rw').innerHTML=R.map(r=>`<div class=row><span>${r[0]}</span><b>${!p?'—':weak?'lug\'atda bor: bir zumda ⚡':fmt(comb/r[1])}</b></div>`).join('');
+ return {p,weak,bits}}
+$('#pw').oninput=calc;calc();
+let cr=null;
+$('#g4').onclick=()=>{const {p,weak,bits}=calc();if(!p)return;clearInterval(cr);const ch='ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz0123456789!@#$%&*',n=p.length,dur=weak?1200:bits<40?1800:2600,t0=performance.now(),c=$('#crk');
+ cr=setInterval(()=>{const k=(performance.now()-t0)/dur,fix=weak||bits<40?Math.floor(Math.min(1,k)*n):0;let s='';for(let i=0;i<n;i++)s+=i<fix?p[i]:ch[ri(0,ch.length-1)];c.textContent=s;
+  if(k>=1){clearInterval(cr);if(weak||bits<40){c.textContent=p;c.style.color='var(--rd)';breach($('#lab4'));setTimeout(()=>{c.style.color='';},1400)}else{c.textContent='🛡 TOPILMADI';xp('pass',10);c.style.color='var(--lm)';setTimeout(()=>{c.style.color='';},1800)}}},40)};
+
+/* ---------- LAB 5: DDoS arena ---------- */
+snip('s5',`hits = defaultdict(deque)
+def allow(ip, limit=5, window=60):
+    q = hits[ip]; now = time.time()
+    while q and now - q[0] > window: q.popleft()
+    if len(q) >= limit: return False   # 429
+    q.append(now); return True`);
+const ac=$('#arena'),ax=ac.getContext('2d');let AW=0,AH=0,dots=[],prt=[],arr=[],stt={ok:0,blk:0,fail:0},lt=0,acc={a:0,l:0},lastSt=0;
+function asz(){AW=ac.width=ac.clientWidth;AH=ac.height=ac.clientHeight}asz();addEventListener('resize',asz);
+swlabel('rl','Rate limit','Rate limit');swlabel('wf','WAF','WAF');
+function arena(t){const dt=Math.min(.05,(t-lt)/1000||0);lt=t;
+ if(cur===7&&AW){const sx=AW*.6,svx=AW-62,it=+$('#ri').value,rl=$('#rl').checked,wf=$('#wf').checked,pa=1-(1-(rl?.75:0))*(1-(wf?.6:0)),pl=rl?.04:0,now=t;
+  acc.a+=dt*it*13;acc.l+=dt*4;while(acc.a>=1){acc.a--;dots.push({x:10,y:rnd(14,AH-14),v:rnd(140,230),atk:1,c:0})}while(acc.l>=1){acc.l--;dots.push({x:10,y:rnd(14,AH-14),v:rnd(110,150),atk:0,c:0})}
+  arr=arr.filter(a=>now-a<1000);const load=arr.length/45;
+  dots=dots.filter(d=>{d.x+=d.v*dt;if(!d.c&&d.x>=sx){d.c=1;if(rl||wf){if(Math.random()<(d.atk?pa:pl)){for(let i=0;i<5;i++)prt.push({x:sx,y:d.y,vx:rnd(-90,10),vy:rnd(-60,60),l:1,r:d.atk});if(d.atk)stt.blk++;return false}}}
+   if(d.x>=svx){arr.push(now);if(load>1){if(!d.atk)stt.fail++}else if(!d.atk)stt.ok++;return false}return true});
+  prt=prt.filter(p=>{p.x+=p.vx*dt;p.y+=p.vy*dt;p.l-=dt*2.2;return p.l>0});
+  ax.clearRect(0,0,AW,AH);
+  if(rl||wf){ax.strokeStyle='#B6FF3B';ax.shadowColor='#B6FF3B';ax.shadowBlur=14;ax.lineWidth=3;ax.beginPath();ax.moveTo(sx,6);ax.lineTo(sx,AH-6);ax.stroke();ax.shadowBlur=0;ax.fillStyle='#B6FF3B';ax.font='11px JetBrains Mono,monospace';ax.fillText('🛡 '+(rl&&wf?'RL+WAF':rl?'RATE LIMIT':'WAF'),sx-44,16)}
+  dots.forEach(d=>{ax.fillStyle=d.atk?'#FF4D5E':'#B6FF3B';ax.beginPath();ax.arc(d.x,d.y,d.atk?2.6:3.6,0,7);ax.fill()});
+  prt.forEach(p=>{ax.globalAlpha=Math.max(0,p.l);ax.fillStyle=p.r?'#FF4D5E':'#B6FF3B';ax.fillRect(p.x,p.y,3,3)});ax.globalAlpha=1;
+  window.__load=load;const over=load>1,sh=over?rnd(-2,2):0;ax.fillStyle=over?'#3a0b12':'#10261a';ax.strokeStyle=over?'#FF4D5E':'#B6FF3B';ax.lineWidth=2;ax.beginPath();ax.roundRect(svx+sh,AH/2-46,50,92,10);ax.fill();ax.stroke();
+  ax.font='24px sans-serif';ax.fillText(over?'💥':'🖥',svx+12+sh,AH/2+8);ax.fillStyle='#222';ax.fillRect(svx,AH-18,50,6);ax.fillStyle=load>1?'#FF4D5E':load>.6?'#FFC24A':'#B6FF3B';ax.fillRect(svx,AH-18,50*Math.min(1,load),6);
+  if(now-lastSt>200){lastSt=now;$('#st').innerHTML=`<span>✅ Xizmat: <b style="color:var(--lm)">${stt.ok}</b></span><span>🚫 Bloklandi: <b style="color:var(--yl)">${stt.blk}</b></span><span>❌ Rad etilgan mijoz: <b style="color:var(--rd)">${stt.fail}</b></span><span>Yuklama: <b>${Math.round(load*100)}%</b></span>`}}
+ requestAnimationFrame(arena)}
+
+/* ---------- Quiz ---------- */
+const QZ=[["Foydalanuvchi matni SQL so'roviga to'g'ridan-to'g'ri yopishtirilsa qanday hujum yuzaga keladi?",["SQL Injection","CSRF","Port skanerlash"],0],
+["XSS'dan himoyalanishning asosiy usuli qaysi?",["Kabelni almashtirish","Chiqishni escape qilish + CSP","Parolni qisqartirish"],1],
+["Bitta IP'dan kelayotgan minglab so'rovni qanday jilovlaymiz?",["Diskni kattalashtirish","Rate limit (429)","Sahifani o'chirish"],1]];
+let qi=0,qs=0;
+function quiz(){const q=$('#qz');if(qi>=QZ.length){const g=qs===3?'🏆 Ajoyib!':qs===2?'👏 Yaxshi!':'📚 Yana urinib ko\'ring';q.innerHTML=`<div class=tag>Natija</div><div class=big>${qs}/3</div><h3 style="text-align:center">${g}</h3><button class=go style="width:100%;padding:12px;margin-top:14px" id="rq">↻ Qayta</button><p style="text-align:center;margin-top:16px;color:var(--dm);font-size:13px">Rahmat! Savollaringiz bormi?</p><p style="text-align:center;margin-top:6px;font-family:var(--mn);font-size:12px;color:var(--lm)">🛡 Himoyachi XP: ${XP}</p>`;if(qs>=2)confetti(q);$('#rq').onclick=()=>{qi=0;qs=0;quiz()};return}
+ const [t,o,a]=QZ[qi];q.innerHTML=`<div class=tag>Tezkor test · ${qi+1}/3</div><h3>${t}</h3>`+o.map((x,i)=>`<button class=op data-i=${i}>${x}</button>`).join('');
+ $$('.op',q).forEach(b=>b.onclick=async()=>{const i=+b.dataset.i;$$('.op',q).forEach(x=>x.style.pointerEvents='none');b.classList.add(i===a?'ok':'no');if(i!==a)$$('.op',q)[a].classList.add('ok');else{qs++;xp('q'+qi,5)}await wait(1000);qi++;quiz()})}
+quiz();
+
+/* ---------- Hero: network canvas, boot, counters ---------- */
+const nc=$('#net'),nx=nc.getContext('2d');let NW=0,NH=0,pts=[],ms={x:-999,y:-999};
+function nsz(){const r=nc.parentElement.getBoundingClientRect();NW=nc.width=r.width;NH=nc.height=r.height;pts=Array.from({length:Math.min(100,Math.round(NW*NH/15000))},()=>({x:rnd(0,NW),y:rnd(0,NH),vx:rnd(-.4,.4),vy:rnd(-.4,.4)}))}
+nsz();addEventListener('resize',nsz);
+nc.parentElement.addEventListener('pointermove',e=>{const r=nc.getBoundingClientRect();ms.x=e.clientX-r.left;ms.y=e.clientY-r.top});
+function net(){if(cur===0){nx.clearRect(0,0,NW,NH);pts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>NW)p.vx*=-1;if(p.y<0||p.y>NH)p.vy*=-1;const dx=ms.x-p.x,dy=ms.y-p.y,d=Math.hypot(dx,dy);if(d<140&&d>1){p.x+=dx/d*.6;p.y+=dy/d*.6}});
+ for(let i=0;i<pts.length;i++){const a=pts[i];for(let j=i+1;j<pts.length;j++){const b=pts[j],d=Math.hypot(a.x-b.x,a.y-b.y);if(d<120){nx.strokeStyle=`rgba(182,255,59,${(1-d/120)*.35})`;nx.lineWidth=1;nx.beginPath();nx.moveTo(a.x,a.y);nx.lineTo(b.x,b.y);nx.stroke()}}
+  const dm=Math.hypot(a.x-ms.x,a.y-ms.y);if(dm<160){nx.strokeStyle=`rgba(77,214,255,${(1-dm/160)*.7})`;nx.beginPath();nx.moveTo(a.x,a.y);nx.lineTo(ms.x,ms.y);nx.stroke()}
+  nx.fillStyle='rgba(182,255,59,.7)';nx.beginPath();nx.arc(a.x,a.y,1.7,0,7);nx.fill()}}
+ requestAnimationFrame(net)}
+let booted=false;
+async function boot(){if(booted)return;booted=true;const b=$('#boot'),L=['<b>[ OK ]</b> Ilova sathi skaneri ishga tushdi','<u>[ !! ]</u> 8 ta hujum vektori aniqlandi','<b>[ OK ]</b> Himoya qatlamlari yoqilmoqda…','<b>$</b> python protect.py --layer 7 --mode defend'];b.innerHTML='';
+ for(const l of L){const d=document.createElement('div');b.appendChild(d);const tmp=document.createElement('div');tmp.innerHTML=l;const txt=tmp.textContent;
+  for(let i=1;i<=txt.length;i++){d.innerHTML=l.replace(/>([^<]*)</,(m,t)=>'>'+t+'<');d.dataset.n=i;break}
+  d.innerHTML=l;d.style.opacity=0;d.style.transition='opacity .4s';void d.offsetWidth;d.style.opacity=1;await wait(650)}
+ b.lastChild.insertAdjacentHTML('beforeend',' <i></i>')}
+function counters(s){$$('.cnt',s).forEach(el=>{const n=+el.dataset.n,t0=performance.now();(function f(t){const p=Math.min(1,(t-t0)/1200);el.textContent=Math.round(n*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)})(t0)})}
+
+/* ---------- Toasts ---------- */
+const TS=['🚨 SQLi bloklandi','🛡 XSS filtrlandi',"⛔ Brute-force: IP bloklandi",'🌊 HTTP flood cheklandi (429)',"🔒 CSRF token rad etdi"];
+setInterval(()=>{if(document.hidden||innerWidth<900)return;const t=document.createElement('div');t.className='toast';t.innerHTML=`<b>${TS[ri(0,4)]}</b><span>${ri(11,223)}.${ri(0,255)}.${ri(0,255)}.${ri(1,254)}</span>`;$('#toasts').appendChild(t);setTimeout(()=>t.remove(),4300)},6500);
+
+/* ---------- Slide system ---------- */
+const wrap=$('#wrap'),S=$$('.slide'),rail=$('#rail');let cur=0;
+S.forEach((s,i)=>{const d=document.createElement('div');d.className='rd';d.onclick=()=>go(i);rail.appendChild(d)});
+const go=i=>S[Math.max(0,Math.min(S.length-1,i))].scrollIntoView({behavior:'smooth'});
+function set(i){if(i<0)return;cur=i;S.forEach((s,k)=>s.classList.toggle('on',k===i));$$('.rd').forEach((d,k)=>d.classList.toggle('on',k===i));$('#bar').style.width=(i+1)/S.length*100+'%';$('#cn').textContent=String(i+1).padStart(2,'0');if(i===0){boot()}counters(S[i]);if(i===7)asz()}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)set(S.indexOf(e.target))}),{root:wrap,threshold:.55});S.forEach(s=>io.observe(s));
+$('#nx').onclick=()=>go(cur+1);$('#pv').onclick=()=>go(cur-1);
+addEventListener('keydown',e=>{if(/INPUT|TEXTAREA/.test(e.target.tagName))return;if(['ArrowRight','ArrowDown','PageDown'].includes(e.key)){e.preventDefault();go(cur+1)}if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();go(cur-1)}});
+/* ===== v2 upgrades ===== */
+var got={},XP=0;
+document.body.insertAdjacentHTML('beforeend','<div id="cg"></div><div id="scan"></div><div id="alarm"><b></b></div><div id="hud">🛡 <span id="lv">Yangi boshlovchi</span> · XP <b id="xp">0</b></div>');
+function xp(k,n){if(got[k])return;got[k]=1;XP+=n;$('#xp').textContent=XP;$('#lv').textContent=XP>=45?'Xavfsizlik ustasi':XP>=20?'Himoyachi':'Yangi boshlovchi';const h=$('#hud');h.classList.remove('up');void h.offsetWidth;h.classList.add('up')}
+function alarm(ok){const a=$('#alarm');a.className='';void a.offsetWidth;a.className=ok?'good':'bad';a.querySelector('b').textContent=ok?'🛡 HIMOYA ISHLADI':'🚨 TIZIM BUZILDI';clearTimeout(a._t);a._t=setTimeout(()=>a.className='',1600)}
+var calm=0;setInterval(()=>{if(cur!==7)return;const on=$('#rl').checked||$('#wf').checked;if(on&&+$('#ri').value>=6&&(window.__load||0)<1)calm++;else calm=0;if(calm>=6)xp('ddos',10)},1000);
+/* cursor glow */
+var cx=innerWidth/2,cy=innerHeight/2,tx=cx,ty=cy;addEventListener('pointermove',e=>{tx=e.clientX;ty=e.clientY});
+(function f(){cx+=(tx-cx)*.12;cy+=(ty-cy)*.12;$('#cg').style.transform=`translate(${cx}px,${cy}px)`;requestAnimationFrame(f)})();
+/* 3D cube on hero */
+$('.slide').insertAdjacentHTML('afterbegin',`<div class="cubew"><div class="cube">${['💉','🕷','🎭','🔨','🌊','🎣'].map(e=>`<div class="fz">${e}</div>`).join('')}<div class="core"></div></div></div>`);
+/* watermark numbers */
+S.forEach((s,i)=>{if(i>0)s.insertAdjacentHTML('afterbegin',`<div class="wm">0${i+1}</div>`)});
+/* slide 2: OSI + OWASP marquee */
+function mq(items,cls){const h=items.map(x=>`<span${x[2]?' class="hl"':''}><b>${x[0]}</b>${x[1]}</span>`).join('');return `<div class="mq ${cls||''}"><div class="mqt">${h}${h}</div></div>`}
+$('.flow').insertAdjacentHTML('beforebegin',`<div class="osi rv d4">${['Fizik','Kanal','Tarmoq','Transport','Sessiya','Taqdimot','Ilova'].map((n,i)=>`<div class="os${i===6?' hot':''}" style="padding-top:${6+i*4}px">${i+1}<br>${n}</div>`).join('')}</div>`);
+const OW=[['A01','Broken Access Control'],['A02','Cryptographic Failures'],['A03','Injection',1],['A04','Insecure Design'],['A05','Security Misconfiguration'],['A06','Vulnerable Components'],['A07','Auth Failures',1],['A08','Integrity Failures'],['A09','Logging Failures'],['A10','SSRF']];
+$('.cap').insertAdjacentHTML('afterend',`<div class="cap rv d5" style="margin-top:14px">OWASP Top 10 (2021) — eng xavfli veb-zaifliklar. Qizil — bugun ko'radiganlarimiz:</div>`+mq(OW,'rv d5'));
+/* slide 3: filters */
+const F=[['Hammasi','all'],["Ma'lumot kiritish",'inp'],['Autentifikatsiya','auth'],['Trafik','trf']];
+$('#cards').insertAdjacentHTML('beforebegin',`<div class="flt rv d3">${F.map((f,i)=>`<button class="fb2${i?'':' on'}" data-c="${f[1]}">${f[0]}</button>`).join('')}</div>`);
+$$('.fb2').forEach(b=>b.onclick=()=>{$$('.fb2').forEach(x=>x.classList.toggle('on',x===b));$$('.fc').forEach((c,i)=>c.classList.toggle('dim',b.dataset.c!=='all'&&A[i][6]!==b.dataset.c))});
+/* last slide: golden rules marquee */
+S[8].insertAdjacentHTML('beforeend',mq([['01',`Kiritilgan ma'lumotga hech qachon ishonmang`],['02','Eng kam huquq tamoyili'],['03','Hamma narsani loglang va kuzating'],['04','Muntazam yangilang (patch)'],['05','Parolni xeshlang, MFA yoqing'],['06','Qatlama-qatlam himoya']],'abs'));
+/* kinetic headings */
+function split(el){let i=0;const walk=n=>[...n.childNodes].forEach(c=>{if(c.nodeType===3){const f=document.createDocumentFragment();c.textContent.split(/(\s+)/).forEach(w=>{if(!w)return;if(/^\s+$/.test(w)){f.appendChild(document.createTextNode(w));return}const s=document.createElement('span');s.className='w';s.style.setProperty('--i',i++);s.textContent=w;f.appendChild(s)});c.replaceWith(f)}else if(c.nodeType===1)walk(c)});walk(el);el.classList.add('sp')}
+$$('.slide h2').forEach(split);
+/* tabs */
+$$('.tbs').forEach(t=>$$('.tbb',t).forEach(b=>b.onclick=()=>{$$('.tbb',t).forEach(x=>x.classList.toggle('on',x===b));$$('.tbp',t).forEach((p,i)=>p.classList.toggle('on',i===+b.dataset.k))}));
+/* ripple + tilt */
+document.addEventListener('click',e=>{const b=e.target.closest('.go,.op,.ch,.tbb');if(!b)return;const r=b.getBoundingClientRect(),s=document.createElement('span'),d=Math.max(r.width,r.height);s.className='rp';s.style.cssText=`width:${d}px;height:${d}px;left:${e.clientX-r.left-d/2}px;top:${e.clientY-r.top-d/2}px`;b.appendChild(s);setTimeout(()=>s.remove(),600)});
+var tl=null;document.addEventListener('pointermove',e=>{const t=e.target.closest('.stat,.node');if(tl&&tl!==t)tl.style.transform='';tl=t;if(!t)return;const r=t.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;t.style.transform=`perspective(700px) rotateX(${-y*10}deg) rotateY(${x*12}deg)`});
+/* per-slide glow colours + scan sweep */
+const GC=['#B6FF3B','#4DD6FF','#C084FC','#FF4D5E','#FFC24A','#FF7AB2','#4DD6FF','#FF4D5E','#B6FF3B'];var lastI=0;
+const _set=set;set=function(i){_set(i);if(i<0)return;$('.g1').style.background=GC[i];$('.g2').style.background=GC[(i+4)%9];if(i!==lastI){const s=$('#scan');s.classList.remove('go');void s.offsetWidth;s.classList.add('go');lastI=i}};
+setTimeout(()=>{window.__rdy=true},900);
+set(0);net();requestAnimationFrame(arena);
+</script>
+</body>
+</html>
